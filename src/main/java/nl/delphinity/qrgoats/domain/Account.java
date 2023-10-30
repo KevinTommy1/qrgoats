@@ -24,9 +24,7 @@ public class Account {
     @Column(columnDefinition = "int default 1", nullable = false, length = 1)
     private Integer role;
 
-    public Account() {
-
-    }
+    public Account() { }
 
     public Account(String email, String password) {
         this.email = email;

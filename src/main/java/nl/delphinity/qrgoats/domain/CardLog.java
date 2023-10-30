@@ -89,9 +89,4 @@ public class CardLog {
         return "Cardlog [id=" + id + ", student=" + student + ", date=" + date + "]";
     }
 
-    @Override
-    public int compareTo(CardLog other) {
-        return this.date.compareTo(other.date);
-    }
-
 }

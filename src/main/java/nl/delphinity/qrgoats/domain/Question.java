@@ -99,9 +99,4 @@ public class Question {
         return questionName;
     }
 
-    @Override
-    public int compareTo(Question o) {
-        return this.questionName.compareToIgnoreCase(o.questionName);
-    }
-
 }
