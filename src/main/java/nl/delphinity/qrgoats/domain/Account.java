@@ -12,31 +12,31 @@ import java.util.Objects;
                 @Index(columnList = "email", unique = true)
         }
 )
-public class Account implements Comparable<Account> {
+public class Account {
 
     @Id
     @Column(nullable = false, unique = true)
     private String email;
 
     @Column(nullable = false)
-    private String wachtwoord;
+    private String password;
 
     @Column(columnDefinition = "int default 1", nullable = false, length = 1)
-    private Integer machtigingen;
+    private Integer role;
 
     public Account() {
 
     }
 
-    public Account(String email, String wachtwoord) {
+    public Account(String email, String password) {
         this.email = email;
-        this.wachtwoord = wachtwoord;
+        this.password = password;
     }
 
-    public Account(String email, String wachtwoord, Integer machtigingen) {
+    public Account(String email, String password, Integer role) {
         this.email = email;
-        this.wachtwoord = wachtwoord;
-        this.machtigingen = machtigingen;
+        this.password = password;
+        this.role = role;
     }
 
     public String getEmail() {
@@ -47,20 +47,20 @@ public class Account implements Comparable<Account> {
         this.email = email;
     }
 
-    public String getWachtwoord() {
-        return wachtwoord;
+    public String getPassword() {
+        return password;
     }
 
-    public void setWachtwoord(String wachtwoord) {
-        this.wachtwoord = wachtwoord;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public Integer getMachtigingen() {
-        return machtigingen;
+    public Integer getRole() {
+        return role;
     }
 
-    public void setMachtigingen(Integer machtigingen) {
-        this.machtigingen = machtigingen;
+    public void setRole(Integer role) {
+        this.role = role;
     }
 
     @Override
@@ -78,37 +78,15 @@ public class Account implements Comparable<Account> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Account account = (Account) o;
-        return Objects.equals(email, account.email) && Objects.equals(wachtwoord, account.wachtwoord) && Objects.equals(machtigingen, account.machtigingen);
-    }
-
-    @Override
-    public int compareTo(Account other) {
-        int temp = email.compareTo(other.email);
-        if (temp == 0) {
-            return wachtwoord.compareTo(other.wachtwoord);
-        }
-        return temp;
+        return Objects.equals(email, account.email) && Objects.equals(password, account.password) && Objects.equals(role, account.role);
     }
 
     @Override
     public String toString() {
         return "Account{" +
                 "email='" + email + '\'' +
-                ", wachtwoord='" + wachtwoord + '\'' +
-                ", machtigingen=" + machtigingen +
+                ", wachtwoord='" + password + '\'' +
+                ", machtigingen=" + role +
                 '}';
     }
-
-    // TODO: Implement this
-    public boolean loginCheck() {
-
-        return true;
-    }
-
-    // TODO: Implement this
-    public boolean changePassword() {
-
-        return true;
-    }
-
 }
